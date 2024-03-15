@@ -31,7 +31,7 @@ const DefaultTextField = ({
       : "border-primary";
 
   return (
-    <div>
+    <div className="relative">
       <div
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
@@ -42,7 +42,11 @@ const DefaultTextField = ({
           <IconButton onClick={onIconClick} alt={iconAlt} iconPath={iconPath} />
         )}
       </div>
-      {isError && <ErrorMessage>{errorMessage}</ErrorMessage>}
+      {isError && (
+        <div className="absolute">
+          <ErrorMessage>{errorMessage}</ErrorMessage>
+        </div>
+      )}
     </div>
   );
 };
