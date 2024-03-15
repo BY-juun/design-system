@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import IconButton from "./IconButton";
 import ErrorMessage from "./ErrorMessage";
 
-interface DefaultTextFieldProps {
+interface DefaultTextFieldProps extends React.HTMLAttributes<HTMLInputElement> {
   errorMessage: string;
   iconPath: string;
   onIconClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -16,12 +16,11 @@ interface DefaultTextFieldProps {
 const DefaultTextField = ({
   errorMessage,
   iconPath,
-  onChange,
   onIconClick,
-  placeholder,
   iconAlt,
-  value,
   isError,
+  value,
+  ...props
 }: DefaultTextFieldProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -38,13 +37,7 @@ const DefaultTextField = ({
         onBlur={() => setIsFocused(false)}
         className={`text-primary border-b ${borderColor}`}
       >
-        <input
-          className="outline-none"
-          type="text"
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-        />
+        <input className="outline-none" type="text" value={value} {...props} />
         {!!value && (
           <IconButton onClick={onIconClick} alt={iconAlt} iconPath={iconPath} />
         )}
