@@ -1,16 +1,13 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    borderRadius: {
+      "button-default": "5px",
+      "tag-button": "17.5px",
+    },
     fontFamily: {
       body: ["Noto Sans KR"],
-    },
-    borderRadius: {
-      default: "5px",
-      caption: "9px",
-      "tag-button": "16px",
-      "chat-text-field": "20px",
     },
     fontSize: {
       xs: [
@@ -57,7 +54,7 @@ export default {
       mono300: "#d6d7d9",
       error: "#d01e1e",
       social: "#395997",
-      "dark-opacity": "rgba(255,255,255,0.1)",
+      "dark-opacity": "rgba(255, 255, 255, 0.1)",
     },
   },
   plugins: [],
